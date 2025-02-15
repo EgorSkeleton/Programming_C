@@ -7,9 +7,12 @@
 int main(int argc, char *argv[]) {
 	double a, b, c;
 	double x1, x2, d;
-	a = 5.3;
-	b = 0.1;
-	c = 6.0;
+	printf("Vvedite a:\n");
+	scanf("%lf", &a);
+	printf("Vvedite b:\n");
+	scanf("%lf", &b);
+	printf("Vvedite c:\n");
+	scanf("%lf", &c);
 	d = pow(b, 2) - 4*a*c;
 	printf("d = %lf\n", d);
 	
