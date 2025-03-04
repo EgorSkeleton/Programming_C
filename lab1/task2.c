@@ -11,9 +11,9 @@ void main(){
 		}
 	}
 	int sum_on_main_diaganal = list_1[0][0] + list_1[1][1] + list_1[2][2];
-	printf("Summa na glavnoi diagonali: %d", sum_on_main_diaganal);
+	printf("Summa na glavnoi diagonali: %d\n", sum_on_main_diaganal);
 	int sum_on_side_diaganal = list_1[0][2] + list_1[1][1] + list_1[2][0];
-	printf("Summa na pobochnoi diagonali: %d", sum_on_side_diaganal);
+	printf("Summa na pobochnoi diagonali: %d\n", sum_on_side_diaganal);
 	int list_2[2][2];
 	for (i=0; i<2; i++){
 		for (j=0; j<2; j++){
