@@ -18,7 +18,7 @@ void main(){
 	for (i=0; i<2; i++){
 		for (j=0; j<2; j++){
 			printf("Vvod: ");
-			scanf("%lf", &list_2[i][j]);
+			scanf("%d", &list_2[i][j]);
 		}
 	}
 	int list_2_sq[2][2];
@@ -26,4 +26,6 @@ void main(){
 	list_2_sq[0][1] = list_2[0][0] * list_2[0][1] + list_2[0][1] * list_2[1][1];
 	list_2_sq[1][0] = list_2[1][0] * list_2[0][0] + list_2[1][1] * list_2[1][0];
 	list_2_sq[1][1] = list_2[1][0] * list_2[0][1] + list_2[1][1] * list_2[1][1];
+	printf("%d %d\n", list_2_sq[0][0], list_2_sq[0][1]);
+	printf("%d %d\n", list_2_sq[1][0], list_2_sq[1][1]);
 }
