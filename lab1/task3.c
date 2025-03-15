@@ -10,6 +10,8 @@ void main(){
 		char ch = str[i];
 		if ((ch == 'a')||(ch == 'b')){
 			str[i] = toupper(ch);
+		}else if(ch == '.'){
+			str[i] = '!';
 		}
 	}
 	printf("Result: %s\n", str);
