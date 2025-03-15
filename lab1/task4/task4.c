@@ -1,4 +1,4 @@
-#include "task4.h"
+#include "triangle.h"
 
 int main() {
 	int a, b, c;
