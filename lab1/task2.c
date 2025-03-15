@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void main(){
-	int i, j;
+	int i, j, k;
 	double list_1[3][3];
 	for (i = 0; i < 3; i++){
 		for (j = 0; j < 3; j++){
@@ -22,10 +22,17 @@ void main(){
 		}
 	}
 	int list_2_sq[2][2];
-	list_2_sq[0][0] = list_2[0][0] * list_2[0][0] + list_2[0][1] * list_2[1][0];
-	list_2_sq[0][1] = list_2[0][0] * list_2[0][1] + list_2[0][1] * list_2[1][1];
-	list_2_sq[1][0] = list_2[1][0] * list_2[0][0] + list_2[1][1] * list_2[1][0];
-	list_2_sq[1][1] = list_2[1][0] * list_2[0][1] + list_2[1][1] * list_2[1][1];
-	printf("%d %d\n", list_2_sq[0][0], list_2_sq[0][1]);
-	printf("%d %d\n", list_2_sq[1][0], list_2_sq[1][1]);
+	for (i = 0; i < 2; i++){
+		for (j = 0; j < 2; j ++){
+			for (k = 0; k < 2; k++){
+				list_2_sq[i][j] += list_2[i][k] * list_2[k][j];
+			}
+			 
+		}
+	}
+	for (i = 0; i < 2; i++){
+		for (j = 0; j < 2; j+=2){
+			printf("%d %d\n", list_2_sq[i][j], list_2_sq[i][j+1]);
+		}
+	}
 }
