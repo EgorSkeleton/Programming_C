@@ -1,7 +1,7 @@
 #include "matrix.h"
 
 int main(int argc, char *argv[]) {
-	int n, i, j;
+	int n, i, j, num;
 	char c;
 	printf("Vvedite razmernost matritsi: ");
 	scanf("%d", &n);
@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 	for (i = 0; i < n; i++){
 		res[i] = (double*)malloc(n * sizeof(double));
 	}
-	printf("Input + if sum, - if diff, * if mult: ");
+	printf("Input + if sum, - if diff, * if mult, s if sum of elements: ");
 	scanf(" %c", &c);
 	switch(c){
 		case '+':
@@ -43,6 +43,16 @@ int main(int argc, char *argv[]) {
 				}
 				printf("\n");
 			}
+			break;
+		case 's':
+			printf("Input matrix number for sum of elements: ");
+			scanf("%d", &num);
+			if (num == 1){
+				res = s_e(arr1, n);
+			}else if(num == 2){
+				res = s_e(arr2, n);
+			}
+			printf("%lf", res);
 			break;
 	}
 	for (i = 0; i < n; i++){

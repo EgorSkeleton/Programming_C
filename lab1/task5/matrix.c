@@ -63,3 +63,15 @@ double** mult(double **arr1, double **arr2, int n){
 	}
 	return res;
 }
+
+double s_e(double **arr, int n){
+	double res;
+	int i, j;
+	for(i=0; i<n; i++){
+		for(j=0;j<n;j++){
+			res += arr[i][j];
+		}
+	}
+	return res;
+}
+
