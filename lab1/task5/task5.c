@@ -52,6 +52,6 @@ int main(int argc, char *argv[]) {
 	}
 	free(res);
 	free(arr1);
-	free(arr1);
+	free(arr2);
 	return 0;
 }
