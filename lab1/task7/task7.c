@@ -1,23 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-struct human{
+typedef struct{
 		char firstname[50];
 		char lastname[50];
 		int birth_date;
-	};
+	}human;
 
-int min(struct human struct_lst[]){
-	int i, min;
-	for(i=0; i<4; i++){
-		if(i==0){
-			min = struct_lst[i].birth_date;
-		}
-		else if(struct_lst[i].birth_date < min){
-			min = struct_lst[i].birth_date;
-		}
+void sort_indexes(human people[], int sorted_indexes[]){
+	int min_index;
+	int i, j;
+	bool used[4];
+	for(j = 0; j<4; j++){	
+		used[i] = false;
 	}
-	return min;
+	
+	for(j = 0; j<4; j++){
+		for (i = 0; i < 4; i++) {
+            if (!used[i]) {
+                min_index = i;
+                break;
+            }
+        }
+		for (i = 0; i<4; i++){
+			if(!used[i] && people[i].birth_date < people[min_index].birth_date){
+				min_index = i;
+			}
+		}
+		
+		sorted_indexes[j] = min_index;
+		used[min_index] = true;
+	}
+	
 }
 
 int main() {
@@ -27,8 +42,9 @@ int main() {
 		printf("Erorr while opening file");
 		return 0;
 	}
-	struct human original[4];
-	struct human sorted[4];
+	human original[4];
+	human sorted[4];
+	int sorted_indexes[4];
 	int i, j;
 	
 	for(i = 0; i < 4; i++){
@@ -37,15 +53,14 @@ int main() {
 			original[i].lastname, 
 			&original[i].birth_date);
 	}
-	for(j=0;j<4;j++){
-		for(i=0; i<4; i++){
-			if(original[i].birth_date == min(original)){
-				sorted[j] = original[i];
-				original[i].birth_date = 2000;
-				break;
-			}
-		}	 
+	fclose(ln);
+	
+	sort_indexes(original, sorted_indexes);
+	
+	for (i = 0; i<4; i++){
+		sorted[i] = original[sorted_indexes[i]];
 	}
+	
 	printf("sorted list:\n");
 	for(i=0; i<4; i++){
 		printf("%s %s %d\n", 
