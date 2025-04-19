@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#define N 80
 
 typedef struct{
 		char firstname[50];
@@ -8,22 +9,22 @@ typedef struct{
 		int birth_date;
 	}human;
 
-void sort_indexes(human people[], int sorted_indexes[]){
+void sort_by_birth_date(human people[], int sorted_indexes[], int size){
 	int min_index;
 	int i, j;
-	bool used[4];
-	for(j = 0; j<4; j++){	
+	bool used[size];
+	for(j = 0; j<size; j++){	
 		used[i] = false;
 	}
 	
-	for(j = 0; j<4; j++){
-		for (i = 0; i < 4; i++) {
+	for(j = 0; j<size; j++){
+		for (i = 0; i < size; i++) {
             if (!used[i]) {
                 min_index = i;
                 break;
             }
         }
-		for (i = 0; i<4; i++){
+		for (i = 0; i<size; i++){
 			if(!used[i] && people[i].birth_date < people[min_index].birth_date){
 				min_index = i;
 			}
@@ -42,12 +43,18 @@ int main() {
 		printf("Erorr while opening file");
 		return 0;
 	}
-	human original[4];
-	human sorted[4];
-	int sorted_indexes[4];
+	char str[N];
 	int i, j;
+	int size = 0;
+	while(fgets(str, N, ln) != NULL){
+		size++;
+	}
+	rewind(ln);
+	human original[size];
+	human sorted[size];
+	int sorted_indexes[size];
 	
-	for(i = 0; i < 4; i++){
+	for(i = 0; i < size; i++){
 		fscanf(ln, "%s %s %d", 
 			original[i].firstname, 
 			original[i].lastname, 
@@ -55,14 +62,14 @@ int main() {
 	}
 	fclose(ln);
 	
-	sort_indexes(original, sorted_indexes);
+	sort_by_birth_date(original, sorted_indexes, size);
 	
-	for (i = 0; i<4; i++){
+	for (i = 0; i<size; i++){
 		sorted[i] = original[sorted_indexes[i]];
 	}
 	
 	printf("sorted list:\n");
-	for(i=0; i<4; i++){
+	for(i=0; i<size; i++){
 		printf("%s %s %d\n", 
 			sorted[i].firstname,
 			sorted[i].lastname,
