@@ -19,11 +19,11 @@ void sort_by_birth_date(human people[], int sorted_indexes[], int size){
 	
 	for(j = 0; j<size; j++){
 		for (i = 0; i < size; i++) {
-            if (!used[i]) {
-                min_index = i;
-                break;
-            }
-        }
+           	 	if (!used[i]) {
+                		min_index = i;
+                		break;
+            		}
+        	}
 		for (i = 0; i<size; i++){
 			if(!used[i] && people[i].birth_date < people[min_index].birth_date){
 				min_index = i;
