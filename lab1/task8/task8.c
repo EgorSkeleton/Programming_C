@@ -14,8 +14,8 @@ typedef struct{
 	
 int compare_by_birth_date(const void *x, const void *y){
 	const human *person_x = (const human *)x;
-    const human *person_y = (const human *)y;
-    int k = (person_x->birth_date > person_y->birth_date) - (person_x->birth_date < person_y->birth_date);
+    	const human *person_y = (const human *)y;
+    	int k = (person_x->birth_date > person_y->birth_date) - (person_x->birth_date < person_y->birth_date);
 	return k != 0 ? k : (person_x->index - person_y->index);
 }
 
